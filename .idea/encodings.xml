@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/gaming-server-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gaming-server-database" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gaming-server-dependencies" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gaming-server-domain" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gaming-server-service-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gaming-server-service-admin-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gaming-server-web-admin" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

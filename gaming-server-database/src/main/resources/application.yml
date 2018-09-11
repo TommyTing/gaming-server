@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://192.168.202.131:3306/toutiao?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: root
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: com.ooqiu.gaming.server.database.domain
+  mapper-locations: classpath:mapper/*.xml

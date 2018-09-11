@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gaming-server-commons" />
+        <module name="gaming-server-database" />
+        <module name="gaming-server-domain" />
+        <module name="gaming-server-service-admin" />
+        <module name="gaming-server-service-admin-api" />
+        <module name="gaming-server-web-admin" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gaming-server-commons" target="1.8" />
+      <module name="gaming-server-database" target="1.8" />
+      <module name="gaming-server-dependencies" target="1.8" />
+      <module name="gaming-server-domain" target="1.8" />
+      <module name="gaming-server-service-admin" target="1.8" />
+      <module name="gaming-server-service-admin-api" target="1.8" />
+      <module name="gaming-server-web-admin" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/gaming-server.iml" filepath="$PROJECT_DIR$/.idea/gaming-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gaming-server-commons/gaming-server-commons.iml" filepath="$PROJECT_DIR$/gaming-server-commons/gaming-server-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gaming-server-database/gaming-server-database.iml" filepath="$PROJECT_DIR$/gaming-server-database/gaming-server-database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gaming-server-dependencies/gaming-server-dependencies.iml" filepath="$PROJECT_DIR$/gaming-server-dependencies/gaming-server-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gaming-server-domain/gaming-server-domain.iml" filepath="$PROJECT_DIR$/gaming-server-domain/gaming-server-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gaming-server-service-admin/gaming-server-service-admin.iml" filepath="$PROJECT_DIR$/gaming-server-service-admin/gaming-server-service-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gaming-server-service-admin-api/gaming-server-service-admin-api.iml" filepath="$PROJECT_DIR$/gaming-server-service-admin-api/gaming-server-service-admin-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gaming-server-web-admin/gaming-server-web-admin.iml" filepath="$PROJECT_DIR$/gaming-server-web-admin/gaming-server-web-admin.iml" />
+    </modules>
+  </component>
+</project>
