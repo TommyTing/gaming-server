@@ -5,8 +5,11 @@ import com.ooqiu.gaming.server.commons.constant.DubboVersionConstant;
 import com.ooqiu.gaming.server.domain.Channel;
 import com.ooqiu.gaming.service.admin.api.ChannelService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * Created by admin on 2018/9/4.
@@ -24,7 +27,12 @@ public class ChannelController {
      * @return
      */
     @RequestMapping(value = "list",method = RequestMethod.GET)
-    public String lis(){
+    public String lis(Model model){
+        List<Channel> channels=channelService.getAll();
+        for (Channel c:channels){
+            System.out.println(c);
+        }
+        model.addAttribute("channels",channels);
         return "modules/channel/list";
     }
 

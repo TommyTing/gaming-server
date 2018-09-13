@@ -35,7 +35,8 @@
                     </div>
                 </div>
                 <div class="col-xl-4 order-1 order-xl-2 m--align-right">
-                    <a href="/channel/form" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                    <a href="/channel/form"
+                       class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
 												<span>
 													<i class="la la-plus"></i>
 													<span>
@@ -64,10 +65,37 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>刺激战场</td>
-                <td>1</td>
-                <td>查看</td>
+            <tr th:each="channel :${channels}">
+                <td th:text="${channel.name}">泡泡堂</td>
+                <td th:text="${channel.sort}">1</td>
+                <td>
+                    <div class="m-demo__preview m-demo__preview--btn">
+                        <a href="#" class="btn btn-primary btn-sm m-btn  m-btn m-btn--icon">
+                        <span>
+                            <i class="la la-edit"></i>
+                            <span>
+                                编辑
+                            </span>
+                        </span>
+                        </a>
+                        <a href="#" class="btn btn-danger btn-sm m-btn  m-btn m-btn--icon">
+                        <span>
+                            <i class="la la-close"></i>
+                            <span>
+                                删除
+                            </span>
+                        </span>
+                        </a>
+                        <a href="#" class="btn btn-brand btn-sm m-btn  m-btn m-btn--icon">
+                        <span>
+                            <i class="la la-plus"></i>
+                            <span>
+                                添加下级菜单
+                            </span>
+                        </span>
+                        </a>
+                    </div>
+                </td>
             </tr>
             </tbody>
         </table>
