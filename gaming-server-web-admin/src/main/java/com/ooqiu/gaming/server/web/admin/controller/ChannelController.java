@@ -29,9 +29,6 @@ public class ChannelController {
     @RequestMapping(value = "list",method = RequestMethod.GET)
     public String lis(Model model){
         List<Channel> channels=channelService.getAll();
-        for (Channel c:channels){
-            System.out.println(c);
-        }
         model.addAttribute("channels",channels);
         return "modules/channel/list";
     }
@@ -41,7 +38,9 @@ public class ChannelController {
      * @return
      */
     @RequestMapping(value = "form",method = RequestMethod.GET)
-    public String from(){
+    public String from(Model model){
+        List<Channel> channels=channelService.getAll();
+        model.addAttribute("channels",channels);
         return "modules/channel/form";
     }
 
