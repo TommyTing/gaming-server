@@ -24,6 +24,13 @@ public interface ChannelService {
     public Channel getById(Long id);
 
     /**
+     * 根据父节点查询子节点
+     * @param pid
+     * @return
+     */
+    public List<Channel> selectByPid(Long pid);
+
+    /**
      * 保存频道
      * @param channel
      * @return

@@ -7,6 +7,7 @@ import com.ooqiu.gaming.server.domain.Channel;
 import com.ooqiu.gaming.service.admin.api.ChannelService;
 import com.ooqiu.gaming.service.admin.mapper.ChannelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
 import java.util.List;
@@ -39,11 +40,18 @@ public class ChannelServiceImpl implements ChannelService {
         channel.setUpdateDate(new Date());
 
         //判断是否父级频道
-        if (channel.getPid()==null||channel.getPid()==0L){
+        if (channel.getPid() == null || channel.getPid() == 0L) {
             channel.setIsParent("0");
             channel.setPid(0L);
         }
 
-       return channelMapper.insert(channel);
+        return channelMapper.insert(channel);
+    }
+
+    @Override
+    public List<Channel> selectByPid(Long pid) {
+        Example example = new Example(Channel.class);
+        example.createCriteria().andEqualTo("pid", pid);
+        return channelMapper.selectByExample(example);
     }
 }
