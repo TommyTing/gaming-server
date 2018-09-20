@@ -1,6 +1,7 @@
 package com.ooqiu.gaming.server.web.admin.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.google.common.collect.Lists;
 import com.ooqiu.gaming.server.commons.constant.DubboVersionConstant;
 import com.ooqiu.gaming.server.domain.Channel;
 import com.ooqiu.gaming.server.web.admin.dto.TreeView;
@@ -33,8 +34,21 @@ public class ChannelController {
      */
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String lis(Model model) {
+        //排序后的集合
+        List<Channel> list = Lists.newArrayList();
         List<Channel> channels = channelService.getAll();
-        model.addAttribute("channels", channels);
+        for (Channel channel : channels) {
+            if ("0".equals(channel.getIsParent())) {
+                list.add(channel);
+                for (Channel subChannel : channels) {
+                    if (subChannel.getPid().longValue() == channel.getId().longValue()) {
+                        list.add(subChannel);
+                    }
+                }
+
+            }
+        }
+        model.addAttribute("channels", list);
         return "modules/channel/list";
     }
 
