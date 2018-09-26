@@ -1,6 +1,12 @@
 var TreeView=function () {
-    var handlerInitTree=function () {
-        $("#m_tree_1").jstree({
+    /**
+     * 初始化树控件
+     * @param id 树控件的元素 ID
+     * @param url Ajax 请求地址
+     * @param callback 回调函数，用于绑定树节点的点击事件
+     */
+    var handlerInitTree=function (id,url,callback) {
+        $("#"+id).jstree({
             "core" : {
                 "themes" : {
                     "responsive": false
@@ -9,7 +15,7 @@ var TreeView=function () {
                 "check_callback" : true,
                 'data' : {
                     'url' : function (node) {
-                        return '/channel/tree';
+                        return url;
                     },
                     'data' : function (node) {
                         return { 'pid' : node.id };
@@ -28,20 +34,15 @@ var TreeView=function () {
             "plugins" : [ "dnd", "state", "types" ]
         });
 
-        $('#m_tree_1').bind("activate_node.jstree",function (obj,e) {
-            var currentNode=e.node;
-            $("#pid").val(currentNode.id);
-            $("#pidText").val(currentNode.text);
+        $('#'+id).bind("activate_node.jstree",function (obj,e) {
+            callback(obj,e);
         });
     };
 
     return{
-        init:function () {
-            handlerInitTree();
+        initTree:function (id,url,callback) {
+            handlerInitTree(id,url,callback);
         }
     }
 }();
 
-jQuery(document).ready(function () {
-    TreeView.init();
-});
