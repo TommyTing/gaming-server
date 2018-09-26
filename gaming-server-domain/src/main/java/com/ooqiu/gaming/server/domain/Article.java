@@ -234,6 +234,11 @@ public class Article implements Serializable {
     private String extend;
 
     /**
+     * 所属频道
+     */
+    private Long channelId;
+
+    /**
      * 获取主键
      *
      * @return id - 主键
@@ -955,6 +960,22 @@ public class Article implements Serializable {
         this.extend = extend;
     }
 
+    /**
+     * 获取所属频道
+     * @return
+     */
+    public Long getChannelId() {
+        return channelId;
+    }
+
+    /**
+     * 设置所属频道
+     * @param channelId
+     */
+    public void setChannelId(Long channelId) {
+        this.channelId = channelId;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
@@ -999,6 +1020,7 @@ public class Article implements Serializable {
                 ", remarks='" + remarks + '\'' +
                 ", delFlag='" + delFlag + '\'' +
                 ", extend='" + extend + '\'' +
+                ", channelId=" + channelId +
                 '}';
     }
 }

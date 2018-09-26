@@ -40,6 +40,7 @@
         <result column="is_h5" jdbcType="VARCHAR" property="isH5"/>
         <result column="author_id" jdbcType="BIGINT" property="authorId"/>
         <result column="show_article" jdbcType="VARCHAR" property="showArticle"/>
+        <result column="channel_id" jdbcType="BIGINT" property="channelId"/>
         <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
         <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
         <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>

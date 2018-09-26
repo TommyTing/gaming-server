@@ -1,0 +1,60 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<!-- begin::Head -->
+<head>
+    <meta charset="utf-8"/>
+    <title>
+        后台管理 | 文章管理
+    </title>
+    <th:block th:include="includes/header :: header"></th:block>
+
+</head>
+<!-- end::Head -->
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+
+<!--begin::Portlet-->
+<div class="m-portlet">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon m--hide">
+                    <i class="la la-gear"></i>
+                </span>
+                <h3 class="m-portlet__head-text">
+                    文章管理
+                </h3>
+            </div>
+        </div>
+    </div>
+    <!--begin::Form-->
+    <form class="m-form" action="/article/save" method="post">
+        <div class="m-portlet__body">
+
+            </div>
+        </div>
+        <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        <button type="submit" class="btn btn-success">
+                            提交
+                        </button>
+                        <button type="reset" class="btn btn-secondary" onclick="history.go(-1);">
+                            返回
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--end::Form-->
+</div>
+
+<!--end::Portlet-->
+
+
+<th:block th:include="includes/footer :: footer"></th:block>
+</body>
+</html>
