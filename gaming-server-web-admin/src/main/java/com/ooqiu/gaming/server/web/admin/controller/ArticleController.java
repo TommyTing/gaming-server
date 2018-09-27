@@ -1,6 +1,7 @@
 package com.ooqiu.gaming.server.web.admin.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.github.pagehelper.PageInfo;
 import com.ooqiu.gaming.server.commons.constant.DubboVersionConstant;
 import com.ooqiu.gaming.server.domain.Article;
 import com.ooqiu.gaming.server.web.admin.dto.DataTable;
@@ -79,6 +80,7 @@ public class ArticleController {
             pageSize=Integer.parseInt(strPageSize);
         }
 
-        return new DataTable<Article>(articleService.page(page,pageSize));
+        PageInfo<Article> pageInfo = articleService.page(page, pageSize);
+        return new DataTable<Article>(pageInfo);
     }
 }
