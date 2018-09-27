@@ -1,5 +1,6 @@
 package com.ooqiu.gaming.service.admin.api;
 
+import com.github.pagehelper.PageInfo;
 import com.ooqiu.gaming.server.domain.Article;
 
 /**
@@ -13,4 +14,12 @@ public interface ArticleService {
      * @return
      */
     public int save(Article article);
+
+    /**
+     * 分页查询
+     * @param page 页码
+     * @param pageSize 页大小
+     * @return
+     */
+    public PageInfo<Article> page(int page,int pageSize);
 }

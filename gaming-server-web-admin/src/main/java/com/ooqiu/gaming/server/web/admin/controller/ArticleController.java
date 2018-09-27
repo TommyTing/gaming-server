@@ -1,12 +1,14 @@
 package com.ooqiu.gaming.server.web.admin.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.github.pagehelper.PageInfo;
 import com.ooqiu.gaming.server.commons.constant.DubboVersionConstant;
 import com.ooqiu.gaming.server.domain.Article;
 import com.ooqiu.gaming.service.admin.api.ArticleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 文章管理
@@ -44,5 +46,16 @@ public class ArticleController {
     public String save(Article article){
         int result=articleService.save(article);
         return "redirect:/article/list";
+    }
+
+    /**
+     * 分页查询
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "data")
+    public String data(){
+        PageInfo<Article> pageInfo=articleService.page(1,2);
+        return null;
     }
 }
