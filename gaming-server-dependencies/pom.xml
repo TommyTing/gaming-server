@@ -36,6 +36,8 @@
         <google-guava.version>23.5-jre</google-guava.version>
         <zkclient.version>0.10</zkclient.version>
         <tk-mybatis.version>3.4.4</tk-mybatis.version>
+        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
     </properties>
 
     <!-- 增加第三方仓库用于依赖 Alibaba 的 Dubbo Starter POM -->
@@ -128,12 +130,26 @@
             </dependency>
             <!-- 序列化 End -->
 
+            <!-- Thymeleaf Begin -->
             <!-- 解决 thymeleaf 模板引擎一定要执行严格的 html5 格式校验问题 -->
             <dependency>
                 <groupId>net.sourceforge.nekohtml</groupId>
                 <artifactId>nekohtml</artifactId>
                 <version>${nekohtml.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.thymeleaf</groupId>
+                <artifactId>thymeleaf-spring4</artifactId>
+                <version>${thymeleaf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>nz.net.ultraq.thymeleaf</groupId>
+                <artifactId>thymeleaf-layout-dialect</artifactId>
+                <version>${thymeleaf-layout-dialect.version}</version>
+            </dependency>
+            <!-- Thymeleaf End -->
 
             <!-- Lombok Begin -->
             <dependency>

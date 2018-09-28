@@ -4,8 +4,10 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
 import com.ooqiu.gaming.server.commons.constant.DubboVersionConstant;
 import com.ooqiu.gaming.server.domain.Article;
+import com.ooqiu.gaming.server.domain.Dict;
 import com.ooqiu.gaming.server.web.admin.dto.DataTable;
 import com.ooqiu.gaming.service.admin.api.ArticleService;
+import com.ooqiu.gaming.service.admin.api.DictService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 文章管理
@@ -23,6 +26,9 @@ public class ArticleController {
 
     @Reference(version = DubboVersionConstant.DUBBO_VERSION_GAMING_SERVER_SERVICE_ADMIN)
     private ArticleService articleService;
+
+    @Reference(version = DubboVersionConstant.DUBBO_VERSION_GAMING_SERVER_SERVICE_ADMIN)
+    private DictService dictService;
 
     /**
      * 跳转文章列表页
@@ -39,6 +45,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "form",method = RequestMethod.GET)
     public String form(){
+        List<Dict> articleTypeList = dictService.selectByType("article_type");
         return "modules/article/form";
     }
 
