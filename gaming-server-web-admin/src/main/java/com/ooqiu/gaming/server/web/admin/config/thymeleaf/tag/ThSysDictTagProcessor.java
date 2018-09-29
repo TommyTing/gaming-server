@@ -1,11 +1,20 @@
 package com.ooqiu.gaming.server.web.admin.config.thymeleaf.tag;
 
 
+import com.ooqiu.gaming.server.domain.Dict;
+import com.ooqiu.gaming.server.web.admin.utils.DubboContextUtils;
+import com.ooqiu.gaming.service.admin.api.DictService;
+import org.springframework.context.ApplicationContext;
 import org.thymeleaf.context.ITemplateContext;
+import org.thymeleaf.model.IModel;
+import org.thymeleaf.model.IModelFactory;
 import org.thymeleaf.model.IProcessableElementTag;
 import org.thymeleaf.processor.element.AbstractElementTagProcessor;
 import org.thymeleaf.processor.element.IElementTagStructureHandler;
+import org.thymeleaf.spring4.context.SpringContextUtils;
 import org.thymeleaf.templatemode.TemplateMode;
+
+import java.util.List;
 
 /**
  * 字典标签
@@ -47,6 +56,36 @@ public class ThSysDictTagProcessor extends AbstractElementTagProcessor {
     protected void doProcess(ITemplateContext iTemplateContext,
                              IProcessableElementTag iProcessableElementTag,
                              IElementTagStructureHandler iElementTagStructureHandler) {
-        System.out.println("Hello World");
+
+        ApplicationContext applicationContext =
+                SpringContextUtils.getApplicationContext(iTemplateContext);
+        DictService dictService =
+                applicationContext.getBean(DubboContextUtils.class).getDictService();
+
+        //查询参数
+        String dictType = iProcessableElementTag.getAttributeValue("type");
+        List<Dict> dictList = dictService.selectByType(dictType);
+
+        //下拉框样式
+        String dictClass=iProcessableElementTag.getAttributeValue("class");
+        //表单元素的name
+        String dictName=iProcessableElementTag.getAttributeValue("name");
+
+        //创建将替换自定义标签的 DOM 结构
+        IModelFactory modelFactory = iTemplateContext.getModelFactory();
+        IModel model = modelFactory.createModel();
+
+        // 这里是将字典的内容拼装成一个下拉框
+        model.add(modelFactory.createOpenElementTag(String.format("select name='%s' class='%s'",
+                dictName,dictClass)));
+        for (Dict dict : dictList) {
+            model.add(modelFactory.createOpenElementTag(String.format("option value='%s'",
+                    dict.getValue())));
+            model.add(modelFactory.createText(dict.getLable()));
+            model.add(modelFactory.createCloseElementTag("option"));
+        }
+        model.add(modelFactory.createCloseElementTag("select"));
+        //利用引擎替换整个标签
+        iElementTagStructureHandler.replaceWith(model, false);
     }
 }

@@ -12,7 +12,7 @@ spring:
 
 dubbo:
   scan:
-    base-packages: com.ooqiu.gaming.server.web.admin.controller
+    base-packages: com.ooqiu.gaming.server.web.admin
   application:
     id: gaming-server-web-admin
     name: gaming-server-web-admin
