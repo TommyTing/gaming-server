@@ -193,6 +193,12 @@ public class Article {
     private String showArticle;
 
     /**
+     * 所属频道
+     */
+    @Column(name = "channel_id")
+    private Long channelId;
+
+    /**
      * 创建人
      */
     @Column(name = "create_by")
@@ -826,6 +832,24 @@ public class Article {
      */
     public void setShowArticle(String showArticle) {
         this.showArticle = showArticle;
+    }
+
+    /**
+     * 获取所属频道
+     *
+     * @return channel_id - 所属频道
+     */
+    public Long getChannelId() {
+        return channelId;
+    }
+
+    /**
+     * 设置所属频道
+     *
+     * @param channelId 所属频道
+     */
+    public void setChannelId(Long channelId) {
+        this.channelId = channelId;
     }
 
     /**

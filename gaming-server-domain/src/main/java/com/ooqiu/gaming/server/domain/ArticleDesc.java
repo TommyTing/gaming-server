@@ -1,9 +1,14 @@
-package com.ooqiu.gaming.server.database.domain;
+package com.ooqiu.gaming.server.domain;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-import javax.persistence.*;
 
-public class Channel {
+@Table(name = "article_desc")
+public class ArticleDesc {
     /**
      * 主键
      */
@@ -12,28 +17,13 @@ public class Channel {
     private Long id;
 
     /**
-     * 频道名称
+     * 所属文章
      */
-    private String name;
+    @Column(name = "article_id")
+    private Long articleId;
 
     /**
-     * 父级频道
-     */
-    private Long pid;
-
-    /**
-     * 是否父级频道
-     */
-    @Column(name = "is_parent")
-    private String isParent;
-
-    /**
-     * 排序
-     */
-    private Integer sort;
-
-    /**
-     * 创建人
+     * 创建者
      */
     @Column(name = "create_by")
     private String createBy;
@@ -45,7 +35,7 @@ public class Channel {
     private Date createDate;
 
     /**
-     * 更新人
+     * 更新者
      */
     @Column(name = "update_by")
     private String updateBy;
@@ -59,13 +49,19 @@ public class Channel {
     /**
      * 备注信息
      */
-    private String remarks;
+    private String remark;
 
     /**
      * 删除标记
      */
     @Column(name = "del_flag")
     private String delFlag;
+
+    /**
+     * 文章详情
+     */
+    @Column(name = "article_desc")
+    private String articleDesc;
 
     /**
      * 获取主键
@@ -86,90 +82,36 @@ public class Channel {
     }
 
     /**
-     * 获取频道名称
+     * 获取所属文章
      *
-     * @return name - 频道名称
+     * @return article_id - 所属文章
      */
-    public String getName() {
-        return name;
+    public Long getArticleId() {
+        return articleId;
     }
 
     /**
-     * 设置频道名称
+     * 设置所属文章
      *
-     * @param name 频道名称
+     * @param articleId 所属文章
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setArticleId(Long articleId) {
+        this.articleId = articleId;
     }
 
     /**
-     * 获取父级频道
+     * 获取创建者
      *
-     * @return pid - 父级频道
-     */
-    public Long getPid() {
-        return pid;
-    }
-
-    /**
-     * 设置父级频道
-     *
-     * @param pid 父级频道
-     */
-    public void setPid(Long pid) {
-        this.pid = pid;
-    }
-
-    /**
-     * 获取是否父级频道
-     *
-     * @return is_parent - 是否父级频道
-     */
-    public String getIsParent() {
-        return isParent;
-    }
-
-    /**
-     * 设置是否父级频道
-     *
-     * @param isParent 是否父级频道
-     */
-    public void setIsParent(String isParent) {
-        this.isParent = isParent;
-    }
-
-    /**
-     * 获取排序
-     *
-     * @return sort - 排序
-     */
-    public Integer getSort() {
-        return sort;
-    }
-
-    /**
-     * 设置排序
-     *
-     * @param sort 排序
-     */
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
-
-    /**
-     * 获取创建人
-     *
-     * @return create_by - 创建人
+     * @return create_by - 创建者
      */
     public String getCreateBy() {
         return createBy;
     }
 
     /**
-     * 设置创建人
+     * 设置创建者
      *
-     * @param createBy 创建人
+     * @param createBy 创建者
      */
     public void setCreateBy(String createBy) {
         this.createBy = createBy;
@@ -194,18 +136,18 @@ public class Channel {
     }
 
     /**
-     * 获取更新人
+     * 获取更新者
      *
-     * @return update_by - 更新人
+     * @return update_by - 更新者
      */
     public String getUpdateBy() {
         return updateBy;
     }
 
     /**
-     * 设置更新人
+     * 设置更新者
      *
-     * @param updateBy 更新人
+     * @param updateBy 更新者
      */
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
@@ -232,19 +174,19 @@ public class Channel {
     /**
      * 获取备注信息
      *
-     * @return remarks - 备注信息
+     * @return remark - 备注信息
      */
-    public String getRemarks() {
-        return remarks;
+    public String getRemark() {
+        return remark;
     }
 
     /**
      * 设置备注信息
      *
-     * @param remarks 备注信息
+     * @param remark 备注信息
      */
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     /**
@@ -263,5 +205,23 @@ public class Channel {
      */
     public void setDelFlag(String delFlag) {
         this.delFlag = delFlag;
+    }
+
+    /**
+     * 获取文章详情
+     *
+     * @return article_desc - 文章详情
+     */
+    public String getArticleDesc() {
+        return articleDesc;
+    }
+
+    /**
+     * 设置文章详情
+     *
+     * @param articleDesc 文章详情
+     */
+    public void setArticleDesc(String articleDesc) {
+        this.articleDesc = articleDesc;
     }
 }

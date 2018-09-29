@@ -1,10 +1,7 @@
 package com.ooqiu.gaming.server.database.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
+import javax.persistence.*;
 
 public class Dict {
     /**
