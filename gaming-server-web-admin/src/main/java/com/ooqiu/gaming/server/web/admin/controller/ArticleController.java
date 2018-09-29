@@ -2,6 +2,7 @@ package com.ooqiu.gaming.server.web.admin.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
 import com.ooqiu.gaming.server.commons.constant.DubboVersionConstant;
 import com.ooqiu.gaming.server.domain.Article;
 import com.ooqiu.gaming.server.web.admin.dto.DataTable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 文章管理
@@ -47,7 +49,21 @@ public class ArticleController {
      * @return
      */
     @RequestMapping(value = "save",method = RequestMethod.POST)
-    public String save(Article article){
+    public String save(Article article,HttpServletRequest req){
+        List<String> imageList= Lists.newArrayList();
+
+        if (!StringUtils.isBlank(req.getParameter("image1"))){
+            imageList.add(req.getParameter("image1"));
+        }
+        if (!StringUtils.isBlank(req.getParameter("image2"))){
+            imageList.add(req.getParameter("image2"));
+        }
+        if (!StringUtils.isBlank(req.getParameter("image3"))){
+            imageList.add(req.getParameter("image3"));
+        }
+
+        article.setCover(imageList.toString());
+
         int result=articleService.save(article);
         return "redirect:/article/list";
     }

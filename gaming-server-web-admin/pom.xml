@@ -61,6 +61,13 @@
         </dependency>
         <!-- Zookeeper End -->
 
+        <!-- FastDfs Begin -->
+        <dependency>
+            <groupId>org.csource</groupId>
+            <artifactId>fastdfs-client-java</artifactId>
+        </dependency>
+        <!-- FastDfs End -->
+
         <!-- Project Begin -->
         <dependency>
             <groupId>com.ooqiu.gaming</groupId>
@@ -74,6 +81,7 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <!-- Project End -->
+
     </dependencies>
 
 

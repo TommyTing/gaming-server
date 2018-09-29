@@ -9,6 +9,11 @@ spring:
     mode: LEGACYHTML5
     encoding: UTF-8
     content-type: text/html
+  http:
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 30Mb
+
 
 dubbo:
   scan:
@@ -19,3 +24,11 @@ dubbo:
   registry:
     id: zookeeper
     address: zookeeper://112.74.181.73:2181?backup=112.74.181.73:2182,112.74.181.73:2183
+
+# FastDFS Begin
+fastdfs.base.url: http://112.74.181.73:8888/
+storage:
+  type: fastdfs
+  fastdfs:
+    tracker_server: 112.74.181.73:22122
+# FastDFS End

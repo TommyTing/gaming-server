@@ -38,6 +38,7 @@
         <tk-mybatis.version>3.4.4</tk-mybatis.version>
         <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
+        <fastdfs-client-java.version>1.27-SNAPSHOT</fastdfs-client-java.version>
     </properties>
 
     <!-- 增加第三方仓库用于依赖 Alibaba 的 Dubbo Starter POM -->
@@ -182,6 +183,15 @@
                 <version>${zkclient.version}</version>
             </dependency>
             <!-- Zookeeper End -->
+
+            <!-- FastDfs Begin -->
+            <dependency>
+                <groupId>org.csource</groupId>
+                <artifactId>fastdfs-client-java</artifactId>
+                <version>${fastdfs-client-java.version}</version>
+            </dependency>
+            <!-- FastDfs End -->
+
         </dependencies>
     </dependencyManagement>
 
