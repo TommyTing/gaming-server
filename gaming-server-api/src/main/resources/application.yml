@@ -1,0 +1,27 @@
+server:
+  port: 8500
+
+spring:
+  application:
+    name: gaming-server-api
+  http:
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 30Mb
+
+
+dubbo:
+  scan:
+    base-packages: com.ooqiu.gaming.server.api
+  application:
+    id: gaming-server-api
+    name: gaming-server-api
+  registry:
+    id: zookeeper
+    address: zookeeper://112.74.181.73:2181?backup=112.74.181.73:2182,112.74.181.73:2183
+
+rest:
+  path:
+    api:
+      v1: api/v1
+      v2: api/v2

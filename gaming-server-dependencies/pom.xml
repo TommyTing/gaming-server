@@ -39,6 +39,7 @@
         <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
         <fastdfs-client-java.version>1.27-SNAPSHOT</fastdfs-client-java.version>
+        <Swagger2.version>2.8.0</Swagger2.version>
     </properties>
 
     <!-- 增加第三方仓库用于依赖 Alibaba 的 Dubbo Starter POM -->
@@ -191,6 +192,19 @@
                 <version>${fastdfs-client-java.version}</version>
             </dependency>
             <!-- FastDfs End -->
+
+            <!-- Swagger2 Begin -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${Swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${Swagger2.version}</version>
+            </dependency>
+            <!-- Swagger2 End -->
 
         </dependencies>
     </dependencyManagement>
