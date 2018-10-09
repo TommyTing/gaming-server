@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class BaseResult implements Serializable {
 
     //状态码
-    private int state;
+    private int status;
 
     //自当以消息
     private String msg;
@@ -21,9 +21,22 @@ public class BaseResult implements Serializable {
 
     public static BaseResult success(Object data){
         BaseResult result=new BaseResult();
-        result.setState(200);
+        result.setStatus(200);
         result.setMsg("请求成功");
         result.setData(data);
+        return result;
+    }
+
+    /**
+     * 失败的请求
+     * @param status 状态码
+     * @param msg 消息
+     * @return
+     */
+    public static BaseResult fail(int status,String msg){
+        BaseResult result=new BaseResult();
+        result.setStatus(status);
+        result.setMsg(msg);
         return result;
     }
 }
