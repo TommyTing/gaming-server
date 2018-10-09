@@ -2,6 +2,7 @@ package com.ooqiu.gaming.server.api.controller.v1;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
+import com.ooqiu.gaming.server.api.dto.BaseResult;
 import com.ooqiu.gaming.server.commons.constant.DubboVersionConstant;
 import com.ooqiu.gaming.server.domain.Article;
 import com.ooqiu.gaming.service.article.api.ArticleService;
@@ -12,8 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * 文章接口
@@ -40,10 +39,10 @@ public class ArticleControllerV1 {
                     paramType = "path")
     })
     @RequestMapping(value = "data/list/{pageNum}/{pageSize}", method = RequestMethod.GET)
-    public List<Article> data(@PathVariable(required = true) int pageNum, @PathVariable(required =
+    public BaseResult data(@PathVariable(required = true) int pageNum, @PathVariable(required =
             true) int pageSize) {
         PageInfo<Article> pageInfo = articleService.selectAll(pageNum, pageSize);
-        return pageInfo.getList();
+        return BaseResult.success(pageInfo.getList());
     }
 
     @ApiOperation(value = "获取文章列表", notes = "根据频道 ID 获取文章列表")
@@ -58,11 +57,11 @@ public class ArticleControllerV1 {
     })
     @RequestMapping(value = "data/channel/{channelId}/{pageNum}/{pageSize}", method =
             RequestMethod.GET)
-    public List<Article> data(@PathVariable(required = true) int pageNum,
-                              @PathVariable(required = true) int pageSize,
-                              @PathVariable(required = true) long channelId) {
+    public BaseResult data(@PathVariable(required = true) int pageNum,
+                           @PathVariable(required = true) int pageSize,
+                           @PathVariable(required = true) long channelId) {
         PageInfo<Article> pageInfo = articleService.selectByChannelId(pageNum, pageSize, channelId);
-        return pageInfo.getList();
+        return BaseResult.success(pageInfo.getList());
     }
 
     @ApiOperation(value = "获取文章列表", notes = "根据文章类型获取文章列表")
@@ -77,11 +76,11 @@ public class ArticleControllerV1 {
     })
     @RequestMapping(value = "data/type/{type}/{pageNum}/{pageSize}", method =
             RequestMethod.GET)
-    public List<Article> data(@PathVariable(required = true) int pageNum,
-                              @PathVariable(required = true) int pageSize,
-                              @PathVariable(required = true) String type) {
+    public BaseResult data(@PathVariable(required = true) int pageNum,
+                           @PathVariable(required = true) int pageSize,
+                           @PathVariable(required = true) String type) {
         PageInfo<Article> pageInfo = articleService.selectBtType(pageNum, pageSize, type);
-        return pageInfo.getList();
+        return BaseResult.success(pageInfo.getList());
     }
 
 }
