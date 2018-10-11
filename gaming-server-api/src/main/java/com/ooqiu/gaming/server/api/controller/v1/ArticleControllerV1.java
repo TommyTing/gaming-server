@@ -2,6 +2,8 @@ package com.ooqiu.gaming.server.api.controller.v1;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
+import com.ooqiu.gaming.server.api.dto.ArticleDto;
 import com.ooqiu.gaming.server.api.dto.BaseResult;
 import com.ooqiu.gaming.server.commons.constant.DubboVersionConstant;
 import com.ooqiu.gaming.server.domain.Article;
@@ -9,10 +11,13 @@ import com.ooqiu.gaming.service.article.api.ArticleService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * 文章接口
@@ -42,7 +47,23 @@ public class ArticleControllerV1 {
     public BaseResult data(@PathVariable(required = true) int pageNum, @PathVariable(required =
             true) int pageSize) {
         PageInfo<Article> pageInfo = articleService.selectAll(pageNum, pageSize);
-        return BaseResult.success(pageInfo.getList());
+
+        List<Article> articleList= pageInfo.getList();
+        List<ArticleDto> list=Lists.newArrayList();
+
+        for (Article article : articleList) {
+            ArticleDto dto=new ArticleDto();
+            BeanUtils.copyProperties(article,dto);
+            List<String> cover=Lists.newArrayList();
+            String[] coverArray=article.getCover().replace("[","").replace("]","").split(",");
+            for (String s : coverArray) {
+                cover.add(s.trim());
+            }
+            dto.setCover(cover);
+            list.add(dto);
+        }
+
+        return BaseResult.success(list);
     }
 
     @ApiOperation(value = "获取文章列表", notes = "根据频道 ID 获取文章列表")
