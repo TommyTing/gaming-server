@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.ooqiu.gaming.service.search.mapper")
-public class GamingServerServiceApplication {
+public class GamingServerServiceSearchApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GamingServerServiceApplication.class,args);
+        SpringApplication.run(GamingServerServiceSearchApplication.class,args);
         Main.main(args);
     }
 }

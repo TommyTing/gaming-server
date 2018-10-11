@@ -76,6 +76,12 @@
 
         <dependency>
             <groupId>com.ooqiu.gaming</groupId>
+            <artifactId>gaming-server-service-search-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ooqiu.gaming</groupId>
             <artifactId>gaming-server-commons</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>

@@ -6,18 +6,18 @@ import java.io.Serializable;
  * 自定义搜索结果集
  */
 public class SearchResult implements Serializable {
-    private long id;
+    private String id;
     private String article_title;
     private String getArticle_url;
     private String getArticle_source;
     private String getArticle_introduction;
     private String getArticle_cover;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -64,7 +64,7 @@ public class SearchResult implements Serializable {
     @Override
     public String toString() {
         return "SearchResult{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", article_title='" + article_title + '\'' +
                 ", getArticle_url='" + getArticle_url + '\'' +
                 ", getArticle_source='" + getArticle_source + '\'' +

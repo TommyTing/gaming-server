@@ -95,7 +95,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.ooqiu.gaming.service.search.GamingServerServiceApplication</mainClass>
+                    <mainClass>com.ooqiu.gaming.service.search.GamingServerServiceSearchApplication</mainClass>
                 </configuration>
 
             </plugin>
