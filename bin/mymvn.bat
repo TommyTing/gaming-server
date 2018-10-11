@@ -29,6 +29,10 @@ cd gaming-server-service-redis-api
 call mvn clean install
 cd ..
 
+cd gaming-server-service-search-api
+call mvn clean install
+cd ..
+
 cd gaming-server-service-admin
 call mvn clean install
 cd ..
@@ -42,6 +46,10 @@ call mvn clean install
 cd ..
 
 cd gaming-server-service-redis
+call mvn clean install
+cd ..
+
+cd gaming-server-service-search
 call mvn clean install
 cd ..
 

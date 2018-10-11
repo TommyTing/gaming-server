@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: gaming-server-service-search
+  datasource:
+    druid:
+      url: jdbc:mysql://112.74.181.73:3306/toutiao?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: Zjs123456.
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.jdbc.Driver
+  data:
+    solr:
+      host: http://112.74.181.73:8983/solr
+mybatis:
+  type-aliases-package: com.ooqiu.gaming.server.domain
+  mapper-locations: classpath:mapper/*.xml
+
+dubbo:
+  scan:
+    base-packages: com.ooqiu.gaming.service.search.api
+  application:
+    id: gaming-server-service-search
+    name: gaming-server-service-search
+  protocol:
+    id: dubbo
+    name: dubbo
+  registry:
+    id: zookeeper
+    address: zookeeper://112.74.181.73:2181?backup=112.74.181.73:2182,112.74.181.73:2183
